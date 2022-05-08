@@ -17,5 +17,18 @@ namespace VehicleTrackerLabTests
             // Assert
             Assert.AreEqual(expectedSlots, actualSlots);
         }
+
+        [TestMethod]
+        public void AddVehicleMethod_IfSlotsAvailable_AddsNewVehicle()
+        {
+            VehicleTracker vt = new VehicleTracker(1, "Bingo drive");
+            Vehicle vehicle = new Vehicle("R2E 7AY", false);
+
+            vt.AddVehicle(vehicle);
+            var expectedVehicle = vehicle;
+            var actualVehicle = vt.VehicleList[1];
+
+            Assert.AreSame(expectedVehicle, actualVehicle);
+        }
     }
 }
