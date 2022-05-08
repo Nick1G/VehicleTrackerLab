@@ -85,7 +85,13 @@ namespace VehicleTrackerLab.Models
         public List<Vehicle> ParkedPassholders()
         {
             List<Vehicle> passHolders = new List<Vehicle>();
-            passHolders.Add(this.VehicleList.FirstOrDefault(v => v.Value.Pass).Value);
+            foreach (KeyValuePair<int, Vehicle> slot in this.VehicleList)
+            {
+                if (slot.Value.Pass)
+                {
+                    passHolders.Add(slot.Value);
+                }
+            }
             return passHolders;
         }
 

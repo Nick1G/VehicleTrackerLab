@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using VehicleTrackerLab.Models;
 
 namespace VehicleTrackerLabTests
@@ -118,6 +119,23 @@ namespace VehicleTrackerLabTests
             vt.RemoveVehicle(1);
 
             Assert.IsTrue(vt.SlotsAvailable == 2);
+        }
+
+        [TestMethod]
+        public void ParkedPassholdersMethod_WhenInvoked_ReturnsListOfPassholders()
+        {
+            VehicleTracker vt = new VehicleTracker(3, "Spoink road");
+            Vehicle vh = new Vehicle("KXN 787", false);
+            Vehicle vh2 = new Vehicle("Y78 99A", true);
+            Vehicle vh3 = new Vehicle("U7N 3AG", true);
+
+            vt.AddVehicle(vh);
+            vt.AddVehicle(vh2);
+            vt.AddVehicle(vh3);
+
+            List<Vehicle> passholders = vt.ParkedPassholders();
+            Assert.IsTrue(passholders.Contains(vh2));
+            Assert.IsTrue(passholders.Contains(vh3));
         }
     }
 }
