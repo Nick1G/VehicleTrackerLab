@@ -137,5 +137,23 @@ namespace VehicleTrackerLabTests
             Assert.IsTrue(passholders.Contains(vh2));
             Assert.IsTrue(passholders.Contains(vh3));
         }
+
+        [TestMethod]
+        public void PassholderPercentageMethod_WhenInvoked_ReturnsAPercentageOfPassholders()
+        {
+            VehicleTracker vt = new VehicleTracker(3, "Spoink road");
+            Vehicle vh = new Vehicle("KXN 787", false);
+            Vehicle vh2 = new Vehicle("Y78 99A", true);
+            Vehicle vh3 = new Vehicle("U7N 3AG", true);
+
+            vt.AddVehicle(vh);
+            vt.AddVehicle(vh2);
+            vt.AddVehicle(vh3);
+
+            int expectedPercentage = (2 / 3) * 100;
+            int actualPercentage = vt.PassholderPercentage();
+
+            Assert.AreEqual(expectedPercentage, actualPercentage);
+        }
     }
 }
