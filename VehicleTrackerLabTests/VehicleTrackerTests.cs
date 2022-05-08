@@ -100,5 +100,24 @@ namespace VehicleTrackerLabTests
 
             Assert.ThrowsException<NullReferenceException>(() => vt.RemoveVehicle(wrongLicence));
         }
+
+        [TestMethod]
+        public void VehicleTracker_OnAddingOrRemoving_UpdatesSlotsAvailable()
+        {
+            VehicleTracker vt = new VehicleTracker(3, "Spoink road");
+            Vehicle vh = new Vehicle("KXN 787", false);
+            Vehicle vh2 = new Vehicle("Y78 99A", true);
+
+            Assert.IsTrue(vt.SlotsAvailable == 3);
+
+            vt.AddVehicle(vh);
+            vt.AddVehicle(vh2);
+
+            Assert.IsTrue(vt.SlotsAvailable == 1);
+
+            vt.RemoveVehicle(1);
+
+            Assert.IsTrue(vt.SlotsAvailable == 2);
+        }
     }
 }

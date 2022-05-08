@@ -17,6 +17,7 @@ namespace VehicleTrackerLab.Models
         public VehicleTracker(int capacity, string address)
         {
             this.Capacity = capacity;
+            this.SlotsAvailable = this.Capacity;
             this.Address = address;
             this.VehicleList = new Dictionary<int, Vehicle>();
 
