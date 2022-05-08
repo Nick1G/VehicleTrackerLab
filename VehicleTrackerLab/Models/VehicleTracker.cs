@@ -44,7 +44,7 @@ namespace VehicleTrackerLab.Models
                 if (slot.Value == null)
                 {
                     this.VehicleList[slot.Key] = vehicle;
-                    this.SlotsAvailable++;
+                    this.SlotsAvailable--;
                     return;
                 }
             }
@@ -56,7 +56,7 @@ namespace VehicleTrackerLab.Models
             try
             {
                 int slot = this.VehicleList.First(v => v.Value.Licence == licence).Key;
-                this.SlotsAvailable--;
+                this.SlotsAvailable++;
                 this.VehicleList[slot] = null;
             }
             catch

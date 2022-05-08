@@ -41,11 +41,32 @@ namespace VehicleTrackerLabTests
             Assert.ThrowsException<IndexOutOfRangeException> (() => vt.AddVehicle(vh));
         }
 
-        //public void RemoveVehicleMethod_IfValidData_RemovesVehicle()
-        //{
-        //    VehicleTracker vt = new VehicleTracker(3, "Spoink road");
-        //    Vehicle vh = new Vehicle("KXN 787", false);
-        //    Vehicle vh2 = new Vehicle("")
-        //}
+        [TestMethod]
+        public void RemoveVehicleWithSlotNumber_IfValidNumber_RemovesVehicle()
+        {
+            VehicleTracker vt = new VehicleTracker(3, "Spoink road");
+            Vehicle vh = new Vehicle("KXN 787", false);
+            Vehicle vh2 = new Vehicle("Y78 99A", true);
+            vt.AddVehicle(vh);
+            vt.AddVehicle(vh2);
+
+            bool removed = vt.RemoveVehicle(1);
+
+            Assert.IsTrue(removed);
+        }
+
+        [TestMethod]
+        public void RemoveVehicleWithLicence_IfFound_RemovesVehicle()
+        {
+            VehicleTracker vt = new VehicleTracker(3, "Spoink road");
+            Vehicle vh = new Vehicle("KXN 787", false);
+            Vehicle vh2 = new Vehicle("Y78 99A", true);
+            vt.AddVehicle(vh);
+            vt.AddVehicle(vh2);
+
+            vt.RemoveVehicle(vh2.Licence);
+
+            Assert.IsNull(vt.VehicleList[2]);
+        }
     }
 }
