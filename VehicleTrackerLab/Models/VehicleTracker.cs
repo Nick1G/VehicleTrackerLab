@@ -67,9 +67,14 @@ namespace VehicleTrackerLab.Models
 
         public bool RemoveVehicle(int slotNumber)
         {
-            if (slotNumber > this.Capacity)
+            if (slotNumber > this.Capacity || slotNumber < 1)
             {
                 return false;
+            }
+
+            if (this.VehicleList[slotNumber] == null)
+            {
+                throw new Exception(BadSearchMessage);
             }
             this.VehicleList[slotNumber] = null;
             this.SlotsAvailable++;
