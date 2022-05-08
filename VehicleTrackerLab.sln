@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleTrackerLab", "VehicleTrackerLab\VehicleTrackerLab.csproj", "{4D796B32-EDDA-4810-88C3-F72175371EBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleTrackerLabTests", "VehicleTrackerLabTests\VehicleTrackerLabTests.csproj", "{E7245719-65E5-4FDF-BAEF-22BC6C045098}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4D796B32-EDDA-4810-88C3-F72175371EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D796B32-EDDA-4810-88C3-F72175371EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D796B32-EDDA-4810-88C3-F72175371EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7245719-65E5-4FDF-BAEF-22BC6C045098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7245719-65E5-4FDF-BAEF-22BC6C045098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7245719-65E5-4FDF-BAEF-22BC6C045098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7245719-65E5-4FDF-BAEF-22BC6C045098}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
